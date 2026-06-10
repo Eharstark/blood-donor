@@ -73,6 +73,11 @@ def get_stats():
         "emergency_requests": req_count,
         "blood_groups": {row['blood_group']: row['count'] for row in bg_counts}
     }), 200
+import os
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5000)
+    app.run(
+        host='0.0.0.0',
+        port=int(os.environ.get('PORT', 5000)),
+        debug=False
+    )
