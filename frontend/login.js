@@ -20,3 +20,4 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
         alert("Invalid demo credentials. Use hospital1 / 123456");
     }
 });
+window.location.href = 'dashboard.html';
